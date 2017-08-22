@@ -1,0 +1,75 @@
+USE_CAMERA_STUB := true
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MT6737T
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := mt6737t
+TARGET_BOARD_PLATFORM_GPU := mali-T720
+
+# Architecture
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_ABI_LIST_32_BIT := armeabi-v7a,armeabi
+TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_SMP := true
+
+# For arm64
+#TARGET_2ND_ARCH := arm
+#TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+#TARGET_2ND_CPU_ABI := armeabi-v7a
+#TARGET_2ND_CPU_ABI2 := armeabi
+#TARGET_2ND_CPU_VARIANT := cortex-a53
+
+# Kernel
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2
+BOARD_KERNEL_BASE := 0x3fffc000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04004000 --tags_offset 0x0e004000 --board SRPPI01A000RU
+
+# Partition info
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x1000000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x1000000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0xC0800000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0xE8800000
+BOARD_CACHEIMAGE_PARTITION_SIZE := 19000000
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+TARGET_PREBUILT_KERNEL := device/samsung/grandpplte/kernel
+TARGET_PREBUILT_DTB := device/samsung/grandpplte/dt.img
+
+# Use this flag if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/grandpplte/bootimg.mk
+
+# Recovery
+BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_RECOVERY_FSTAB := device/samsung/grandpplte/recovery.fstab
+
+# TWRP specific build flags
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 36600
+TW_DEFAULT_BRIGHTNESS := 16200
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXTRA_LANGUAGES := true
+TW_USE_NEW_MINADBD := true
+
+TARGET_SYSTEM_PROP := device/samsung/grandpplte/system.prop
+
+# Color fix
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+
+
